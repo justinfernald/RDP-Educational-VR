@@ -18,12 +18,12 @@ public class RectangleTool : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (OVRInput.Get(OVRInput.RawButton.RIndexTrigger))
+        if (OVRInput.GetDown(OVRInput.RawButton.RIndexTrigger))
         {
             AddPoint(rightHandLocation.position);
         }
 
-        if (OVRInput.Get(OVRInput.RawButton.LIndexTrigger))
+        if (OVRInput.GetDown(OVRInput.RawButton.LIndexTrigger))
         {
             AddPoint(leftHandLocation.position);
         }
