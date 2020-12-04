@@ -33,10 +33,11 @@ public class LineTool : MonoBehaviour
 
         points.Add(point);
 
-        //If there are 2 points create a new line renderer and set start and end points
+        //If there are 2 points create a new line renderer in the layer "Drawn" and set start and end points
         if (points.Count == 2)
         {
             GameObject newLine = new GameObject("Line");
+            newLine.layer = LayerMask.NameToLayer("Drawn");
             LineRenderer lineRenderer = newLine.AddComponent<LineRenderer>();
             lineRenderer.SetPositions(points.ToArray());
             lineRenderer.endWidth = .05f;

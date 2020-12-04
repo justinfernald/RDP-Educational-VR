@@ -38,8 +38,9 @@ public class RectangleTool : MonoBehaviour
         {
 
 
-            //Add all points together to make a plane
+            //Add all points together to make a plane and set the layer to "Drawn"
             GameObject newMesh = new GameObject("Generated Shape");
+            newMesh.layer = LayerMask.NameToLayer("Drawn");
             MeshRenderer meshRenderer = newMesh.AddComponent<MeshRenderer>();
             meshRenderer.sharedMaterial = new Material(Shader.Find("Standard"));
 
