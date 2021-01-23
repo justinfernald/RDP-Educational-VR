@@ -22,7 +22,7 @@ public class Drawing : MonoBehaviour
             {
                 //Create connector and set it to "Drawn" layer
                 GameObject connector = Instantiate(drawingPointConnector, (rightHandLocation.position - lastDrawnPoint) / 2.0f + lastDrawnPoint, Quaternion.FromToRotation(Vector3.up, rightHandLocation.position - lastDrawnPoint));
-                connector.layer = LayerMask.NameToLayer("Drawn");
+                //connector.layer = LayerMask.NameToLayer("Drawn");
                 var v3T = connector.transform.localScale;
                 v3T.y = (rightHandLocation.position - lastDrawnPoint).magnitude;
                 connector.transform.localScale = v3T;
@@ -30,8 +30,8 @@ public class Drawing : MonoBehaviour
             wasDrawing = true;
 
             //Create a new drawing point and set the layer to "Drawn"
-            Instantiate(drawingPoint, rightHandLocation.position, Quaternion.identity).layer = LayerMask.NameToLayer("Drawn");
-
+            Instantiate(drawingPoint, rightHandLocation.position, Quaternion.identity);
+            //Instantiate(drawingPoint, rightHandLocation.position, Quaternion.identity).layer = LayerMask.NameToLayer("Drawn");
             lastDrawnPoint = rightHandLocation.position;
         } else
         {
