@@ -18,15 +18,26 @@ public class LineTool : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        ////if (OVRInput.GetDown(OVRInput.RawButton.RIndexTrigger))
-        ////{
-        ////    AddPoint(rightHandLocation.position);
-        ////}
+        if (OVRInput.GetDown(OVRInput.RawButton.A))
+        {
+            AddPoint(rightHandLocation.position);
+        }
 
-        ////if (OVRInput.GetDown(OVRInput.RawButton.LIndexTrigger))
-        ////{
-        ////    AddPoint(leftHandLocation.position);
-        ////}
+        if (OVRInput.GetUp(OVRInput.RawButton.A))
+        {
+            AddPoint(rightHandLocation.position);
+        }
+        //OVRInput.GetUp
+
+        if (OVRInput.GetDown(OVRInput.RawButton.X))
+        {
+            AddPoint(leftHandLocation.position);
+        }
+
+        if (OVRInput.GetUp(OVRInput.RawButton.X))
+        {
+            AddPoint(leftHandLocation.position);
+        }
     }
 
     void AddPoint(Vector3 point) {
