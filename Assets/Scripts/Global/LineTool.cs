@@ -18,12 +18,23 @@ public class LineTool : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (OVRInput.GetDown(OVRInput.RawButton.RIndexTrigger))
+        if (OVRInput.GetDown(OVRInput.RawButton.A))
         {
             AddPoint(rightHandLocation.position);
         }
 
-        if (OVRInput.GetDown(OVRInput.RawButton.LIndexTrigger))
+        if (OVRInput.GetUp(OVRInput.RawButton.A))
+        {
+            AddPoint(rightHandLocation.position);
+        }
+        //OVRInput.GetUp
+
+        if (OVRInput.GetDown(OVRInput.RawButton.X))
+        {
+            AddPoint(leftHandLocation.position);
+        }
+
+        if (OVRInput.GetUp(OVRInput.RawButton.X))
         {
             AddPoint(leftHandLocation.position);
         }
@@ -37,7 +48,7 @@ public class LineTool : MonoBehaviour
         if (points.Count == 2)
         {
             GameObject newLine = new GameObject("Line");
-            newLine.layer = LayerMask.NameToLayer("Drawn");
+            //newLine.layer = LayerMask.NameToLayer("Drawn");
             LineRenderer lineRenderer = newLine.AddComponent<LineRenderer>();
             lineRenderer.SetPositions(points.ToArray());
             lineRenderer.endWidth = .05f;
